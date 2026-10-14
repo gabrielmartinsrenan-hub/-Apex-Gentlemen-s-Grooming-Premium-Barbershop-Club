@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Gentlemen's Grooming | Premium Barbershop & Club</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            apex: {
+              50: '#fbf8f3',
+              400: '#d4af37', // Gold Accent
+              500: '#c59b27',
+              850: '#121214',
+              900: '#0a0a0c',
+              950: '#050506',
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .hero-bg {
+      background: linear-gradient(180deg, rgba(5, 5, 6, 0.75) 0%, rgba(5, 5, 6, 0.98) 100%), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=2000&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans bg-apex-950 text-slate-200 antialiased selection:bg-apex-400 selection:text-apex-950">
+
+  <!-- Navigation Bar -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-apex-950/80 backdrop-blur-md border-b border-apex-400/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-full border-2 border-apex-400 text-apex-400 flex items-center justify-center font-serif font-bold text-xl shadow-lg shadow-apex-400/10 group-hover:scale-105 transition-transform">
+            A
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif text-lg font-bold tracking-widest text-white">APEX<span class="text-apex-400">.</span></span>
+            <span class="text-[9px] uppercase tracking-widest text-slate-400">Grooming & Club</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+          <a href="#services" class="hover:text-apex-400 transition-colors">Services</a>
+          <a href="#experience" class="hover:text-apex-400 transition-colors">The Experience</a>
+          <a href="#barbers" class="hover:text-apex-400 transition-colors">Master Barbers</a>
+          <a href="#reviews" class="hover:text-apex-400 transition-colors">Reviews</a>
+          <a href="#booking" class="hover:text-apex-400 transition-colors">Contact</a>
+        </nav>
+
+        <!-- CTA Action Buttons -->
+        <div class="hidden md:flex items-center gap-4">
+          <button onclick="openModal('vipModal')" class="text-xs font-bold uppercase tracking-wider text-apex-400 border border-apex-400/30 px-4 py-2 rounded-full hover:bg-apex-400/10 transition-colors">
+            VIP Club
+          </button>
+          <a href="#booking" class="bg-apex-400 hover:bg-apex-500 text-apex-950 font-bold px-5 py-2.5 rounded-full text-sm shadow-lg shadow-apex-400/20 transition-all hover:scale-105">
+            Book Appointment
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="md:hidden text-2xl text-apex-400 p-2 focus:outline-none" aria-label="Open Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-apex-900 border-b border-apex-400/20 px-4 pt-3 pb-6 space-y-3">
+      <a href="#services" class="block py-2 text-slate-200 hover:text-apex-400 font-medium">Services</a>
+      <a href="#experience" class="block py-2 text-slate-200 hover:text-apex-400 font-medium">The Experience</a>
+      <a href="#barbers" class="block py-2 text-slate-200 hover:text-apex-400 font-medium">Master Barbers</a>
+      <a href="#reviews" class="block py-2 text-slate-200 hover:text-apex-400 font-medium">Reviews</a>
+      <a href="#booking" class="block py-2 text-slate-200 hover:text-apex-400 font-medium">Contact</a>
+      <div class="pt-4 border-t border-apex-400/10 flex flex-col gap-3">
+        <button onclick="openModal('vipModal')" class="w-full text-center py-2.5 text-apex-400 border border-apex-400/40 rounded-xl font-semibold text-xs uppercase tracking-wider">
+          Join VIP Club
+        </button>
+        <a href="#booking" class="w-full text-center bg-apex-400 text-apex-950 py-2.5 rounded-xl font-bold shadow-md">
+          Book Appointment
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center pt-24 hero-bg px-4 sm:px-6 lg:px-8">
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+      
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-apex-400/10 border border-apex-400/30 text-xs sm:text-sm font-semibold tracking-widest uppercase text-apex-400">
+        <i class="fa-solid fa-scissors"></i> Precision Cuts & Timeless Style
+      </span>
+
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-white leading-tight">
+        Mastering the art of <span class="text-apex-400 italic">gentlemen's grooming.</span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+        Experience tailored haircuts, hot-towel straight razor shaves, complimentary craft beverages, and an exclusive lounge designed for modern gentlemen.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a href="#booking" class="w-full sm:w-auto bg-apex-400 hover:bg-apex-500 text-apex-950 font-bold px-8 py-4 rounded-full text-base shadow-xl shadow-apex-400/20 transition-all hover:scale-105 flex items-center justify-center gap-2">
+          <i class="fa-regular fa-calendar-check"></i> Book Your Visit
+        </a>
+        <a href="#services" class="w-full sm:w-auto bg-apex-850 hover:bg-apex-850/80 text-white border border-apex-400/30 font-semibold px-8 py-4 rounded-full text-base transition-all flex items-center justify-center gap-2">
+          Explore Menu
+        </a>
+      </div>
+
+      <!-- Quick Highlights -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto border-t border-apex-400/10 text-left">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-apex-400/10 text-apex-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-whiskey-glass"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">Bar & Lounge</h4>
+            <p class="text-xs text-slate-400">Complimentary Drinks</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-apex-400/10 text-apex-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">Hot Towel Shave</h4>
+            <p class="text-xs text-slate-400">Traditional Technique</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 col-span-2 md:col-span-1">
+          <div class="w-10 h-10 rounded-full bg-apex-400/10 text-apex-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-square-parking"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-white">Private Parking</h4>
+            <p class="text-xs text-slate-400">Valet Available</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-apex-400 text-xs font-bold tracking-widest uppercase">Grooming Menu</span>
+      <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Services & Pricing</h2>
+      <p class="text-slate-400 text-sm">Every service includes a consultation, scalp massage, and premium finish.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Service 1 -->
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl p-8 hover:border-apex-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-apex-400/10 text-apex-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-scissors"></i>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-apex-400/10 text-apex-400">45 mins</span>
+          </div>
+          <h3 class="text-xl font-bold font-serif text-white mb-2">Signature Haircut</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Precision cut, hair wash, scalp massage, hot towel treatment, and style with premium matte clay or pomade.</p>
+        </div>
+        <div class="pt-4 border-t border-apex-400/10 flex items-center justify-between">
+          <span class="text-2xl font-serif font-bold text-apex-400">$55</span>
+          <a href="#booking" class="bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl p-8 hover:border-apex-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-apex-400/10 text-apex-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-spray-can-sparkles"></i>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-apex-400/10 text-apex-400">40 mins</span>
+          </div>
+          <h3 class="text-xl font-bold font-serif text-white mb-2">Hot Towel Beard Shave</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Essential oils treatment, steaming towels, warm lather, precision razor line-up, and soothing aftershave balm.</p>
+        </div>
+        <div class="pt-4 border-t border-apex-400/10 flex items-center justify-between">
+          <span class="text-2xl font-serif font-bold text-apex-400">$45</span>
+          <a href="#booking" class="bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl p-8 hover:border-apex-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-apex-400/10 text-apex-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-apex-400/10 text-apex-400">75 mins</span>
+          </div>
+          <h3 class="text-xl font-bold font-serif text-white mb-2">Executive Combo</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Our flagship package: Signature Haircut + Full Beard Sculpting & Razor Shave + Complimentary Single Malt Bourbon.</p>
+        </div>
+        <div class="pt-4 border-t border-apex-400/10 flex items-center justify-between">
+          <span class="text-2xl font-serif font-bold text-apex-400">$90</span>
+          <a href="#booking" class="bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl p-8 hover:border-apex-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-apex-400/10 text-apex-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-palette"></i>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-apex-400/10 text-apex-400">45 mins</span>
+          </div>
+          <h3 class="text-xl font-bold font-serif text-white mb-2">Beard & Hair Camo Color</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Subtle grey blending for hair or beard designed to enhance natural color without a stark dyed look.</p>
+        </div>
+        <div class="pt-4 border-t border-apex-400/10 flex items-center justify-between">
+          <span class="text-2xl font-serif font-bold text-apex-400">$50</span>
+          <a href="#booking" class="bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl p-8 hover:border-apex-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-apex-400/10 text-apex-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-spa"></i>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-apex-400/10 text-apex-400">35 mins</span>
+          </div>
+          <h3 class="text-xl font-bold font-serif text-white mb-2">Revitalizing Facial Treatment</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Deep skin cleansing, charcoal detox mask, blackhead removal, hot steam, and invigorating moisturizer.</p>
+        </div>
+        <div class="pt-4 border-t border-apex-400/10 flex items-center justify-between">
+          <span class="text-2xl font-serif font-bold text-apex-400">$60</span>
+          <a href="#booking" class="bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl p-8 hover:border-apex-400/40 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-apex-400/10 text-apex-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-child"></i>
+            </div>
+            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-apex-400/10 text-apex-400">30 mins</span>
+          </div>
+          <h3 class="text-xl font-bold font-serif text-white mb-2">Young Gentleman Cut</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6">Tailored haircuts for boys under 12, crafted with patience, care, and a choice of juice or soda.</p>
+        </div>
+        <div class="pt-4 border-t border-apex-400/10 flex items-center justify-between">
+          <span class="text-2xl font-serif font-bold text-apex-400">$40</span>
+          <a href="#booking" class="bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-colors">
+            Book Service
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About / Experience Section -->
+  <section id="experience" class="py-24 bg-apex-900/60 border-y border-apex-400/10 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        
+        <div class="space-y-6">
+          <span class="text-apex-400 text-xs font-bold tracking-widest uppercase">Beyond a Cut</span>
+          <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight">
+            An exclusive retreat for style, relaxation, and conversation.
+          </h2>
+          <p class="text-slate-400 text-base leading-relaxed">
+            Inspired by 1920s Chicago speakeasies and traditional English barbering, Apex Gentlemen's Grooming pairs leather barber chairs with vinyl music, craft bourbon, and master craftsmanship.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="flex items-center gap-3 bg-apex-900 p-4 rounded-2xl border border-apex-400/10">
+              <i class="fa-solid fa-check text-apex-400"></i>
+              <span class="text-sm font-medium text-white">Single Malt Bourbon Bar</span>
+            </div>
+            <div class="flex items-center gap-3 bg-apex-900 p-4 rounded-2xl border border-apex-400/10">
+              <i class="fa-solid fa-check text-apex-400"></i>
+              <span class="text-sm font-medium text-white">Imported Italian Products</span>
+            </div>
+            <div class="flex items-center gap-3 bg-apex-900 p-4 rounded-2xl border border-apex-400/10">
+              <i class="fa-solid fa-check text-apex-400"></i>
+              <span class="text-sm font-medium text-white">Private Billiards Table</span>
+            </div>
+            <div class="flex items-center gap-3 bg-apex-900 p-4 rounded-2xl border border-apex-400/10">
+              <i class="fa-solid fa-check text-apex-400"></i>
+              <span class="text-sm font-medium text-white">High-Speed Wi-Fi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=600&q=80" alt="Barbershop Lounge" class="rounded-3xl object-cover h-80 w-full shadow-2xl border border-apex-400/20 hover:scale-105 transition-transform duration-300">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" alt="Barber at Work" class="rounded-3xl object-cover h-80 w-full shadow-2xl translate-y-8 border border-apex-400/20 hover:scale-105 transition-transform duration-300">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Barbers Section -->
+  <section id="barbers" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <span class="text-apex-400 text-xs font-bold tracking-widest uppercase">Craftsmen</span>
+      <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Meet Our Master Barbers</h2>
+      <p class="text-slate-400 text-sm">Decades of combined experience in classic razor work and modern styling.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl overflow-hidden text-center p-6 space-y-4">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Arthur Pendelton" class="w-32 h-32 rounded-full object-cover mx-auto border-2 border-apex-400 shadow-lg">
+        <div>
+          <h3 class="text-xl font-bold font-serif text-white">Arthur Pendelton</h3>
+          <p class="text-xs text-apex-400 font-semibold uppercase tracking-wider mt-1">Head Barber (12 yrs exp)</p>
+        </div>
+        <p class="text-slate-400 text-xs px-4">Specialist in traditional English scissor cuts, pompadours, and sculptured beards.</p>
+        <div class="pt-2">
+          <a href="#booking" class="inline-block bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 text-xs font-bold px-5 py-2.5 rounded-xl transition-colors">
+            Book with Arthur
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl overflow-hidden text-center p-6 space-y-4">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Marcus Sterling" class="w-32 h-32 rounded-full object-cover mx-auto border-2 border-apex-400 shadow-lg">
+        <div>
+          <h3 class="text-xl font-bold font-serif text-white">Marcus Sterling</h3>
+          <p class="text-xs text-apex-400 font-semibold uppercase tracking-wider mt-1">Fade & Line-Up Specialist</p>
+        </div>
+        <p class="text-slate-400 text-xs px-4">Renowned for modern skin fades, sharp razor edges, and custom hair design.</p>
+        <div class="pt-2">
+          <a href="#booking" class="inline-block bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 text-xs font-bold px-5 py-2.5 rounded-xl transition-colors">
+            Book with Marcus
+          </a>
+        </div>
+      </div>
+
+      <div class="bg-apex-900 border border-apex-400/10 rounded-3xl overflow-hidden text-center p-6 space-y-4">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Julian Vance" class="w-32 h-32 rounded-full object-cover mx-auto border-2 border-apex-400 shadow-lg">
+        <div>
+          <h3 class="text-xl font-bold font-serif text-white">Julian Vance</h3>
+          <p class="text-xs text-apex-400 font-semibold uppercase tracking-wider mt-1">Hot Towel Shave Master</p>
+        </div>
+        <p class="text-slate-400 text-xs px-4">Expert in facial treatments, hot towel straight razor shaves, and beard therapy.</p>
+        <div class="pt-2">
+          <a href="#booking" class="inline-block bg-apex-850 hover:bg-apex-400 hover:text-apex-950 text-slate-200 text-xs font-bold px-5 py-2.5 rounded-xl transition-colors">
+            Book with Julian
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Booking Form -->
+  <section id="booking" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-apex-900 border border-apex-400/30 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+      
+      <div class="absolute top-0 right-0 w-64 h-64 bg-apex-400/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <span class="text-apex-400 text-xs font-bold tracking-widest uppercase">Online Reservation</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Schedule Your Visit</h2>
+        <p class="text-slate-400 text-sm">Select your service, preferred barber, and date for your grooming session.</p>
+      </div>
+
+      <form onsubmit="handleBooking(event)" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Full Name</label>
+            <input type="text" required placeholder="e.g. Jonathan Wick" class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/25 text-white placeholder-slate-500 focus:outline-none focus:border-apex-400 text-sm">
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Phone / WhatsApp</label>
+            <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/25 text-white placeholder-slate-500 focus:outline-none focus:border-apex-400 text-sm">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Desired Service</label>
+            <select required class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/25 text-white focus:outline-none focus:border-apex-400 text-sm">
+              <option value="" disabled selected>Select service</option>
+              <option>Signature Haircut ($55)</option>
+              <option>Hot Towel Beard Shave ($45)</option>
+              <option>Executive Combo ($90)</option>
+              <option>Beard & Hair Camo Color ($50)</option>
+              <option>Revitalizing Facial ($60)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Barber Preference</label>
+            <select required class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/25 text-white focus:outline-none focus:border-apex-400 text-sm">
+              <option value="" disabled selected>Any Barber</option>
+              <option>Arthur Pendelton</option>
+              <option>Marcus Sterling</option>
+              <option>Julian Vance</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-2">Appointment Date</label>
+            <input type="date" required class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/25 text-white focus:outline-none focus:border-apex-400 text-sm">
+          </div>
+        </div>
+
+        <div class="pt-4 text-center">
+          <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-apex-400 hover:bg-apex-500 text-apex-950 font-bold rounded-xl text-sm shadow-xl shadow-apex-400/25 transition-all">
+            Confirm Booking
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Client Reviews -->
+  <section id="reviews" class="py-24 bg-apex-900/30 border-t border-apex-400/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <span class="text-apex-400 text-xs font-bold tracking-widest uppercase">Testimonials</span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">What Gentlemen Say</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-apex-900 p-8 rounded-3xl border border-apex-400/10 space-y-4">
+          <div class="flex text-apex-400 gap-1 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-300 text-sm italic leading-relaxed">
+            "Hands down the finest barbershop in town. The attention to detail from Marcus is unmatched, and sipping bourbon while waiting is a fantastic bonus."
+          </p>
+          <div class="pt-4 border-t border-apex-400/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-apex-400/20 text-apex-400 font-bold flex items-center justify-center text-sm">EH</div>
+            <div>
+              <h5 class="font-bold text-white text-sm">Ethan Harrison</h5>
+              <p class="text-xs text-slate-400">Regular Client</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-apex-900 p-8 rounded-3xl border border-apex-400/10 space-y-4">
+          <div class="flex text-apex-400 gap-1 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-300 text-sm italic leading-relaxed">
+            "The Hot Towel Beard Shave with Julian is my ritual before every major business meeting. Authentic experience with top-tier professionalism."
+          </p>
+          <div class="pt-4 border-t border-apex-400/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-apex-400/20 text-apex-400 font-bold flex items-center justify-center text-sm">DB</div>
+            <div>
+              <h5 class="font-bold text-white text-sm">David Miller</h5>
+              <p class="text-xs text-slate-400">VIP Member</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-apex-900 p-8 rounded-3xl border border-apex-400/10 space-y-4">
+          <div class="flex text-apex-400 gap-1 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-slate-300 text-sm italic leading-relaxed">
+            "Brought my son here for his first proper haircut with Arthur. Great atmosphere, respectful team, and flawless craftsmanship."
+          </p>
+          <div class="pt-4 border-t border-apex-400/10 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-apex-400/20 text-apex-400 font-bold flex items-center justify-center text-sm">RC</div>
+            <div>
+              <h5 class="font-bold text-white text-sm">Robert Carter</h5>
+              <p class="text-xs text-slate-400">Client since 2022</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-apex-950 text-slate-400 pt-16 pb-12 border-t border-apex-400/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full border-2 border-apex-400 text-apex-400 flex items-center justify-center font-serif font-bold text-base">A</div>
+          <span class="font-serif text-lg font-bold text-white">APEX<span class="text-apex-400">.</span></span>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          The premier grooming club for gentlemen who value tradition, timeless style, and uncompromising quality.
+        </p>
+        <div class="flex gap-4 text-apex-400">
+          <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+          <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-lg"></i></a>
+          <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Opening Hours</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li>Monday - Friday: 09:00 AM - 08:00 PM</li>
+          <li>Saturday: 08:00 AM - 06:00 PM</li>
+          <li>Sunday: Closed (Private Events)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="#services" class="hover:text-apex-400 transition-colors">Services & Menu</a></li>
+          <li><a href="#experience" class="hover:text-apex-400 transition-colors">The Lounge</a></li>
+          <li><a href="#barbers" class="hover:text-apex-400 transition-colors">Master Barbers</a></li>
+          <li><a href="#booking" class="hover:text-apex-400 transition-colors">Book Online</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white text-xs font-bold uppercase tracking-widest mb-4">Contact & Location</h4>
+        <p class="text-xs text-slate-400 mb-2"><i class="fa-solid fa-location-dot mr-2 text-apex-400"></i> 742 Fifth Avenue, New York, NY</p>
+        <p class="text-xs text-slate-400 mb-2"><i class="fa-solid fa-phone mr-2 text-apex-400"></i> +1 (212) 555-0199</p>
+        <p class="text-xs text-slate-400"><i class="fa-solid fa-envelope mr-2 text-apex-400"></i> contact@apexgrooming.com</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-apex-400/10 text-center text-xs text-slate-600">
+      <p>&copy; 2026 Apex Gentlemen's Grooming. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- VIP Membership Modal -->
+  <div id="vipModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-apex-950/80 backdrop-blur-sm hidden transition-opacity">
+    <div class="bg-apex-900 border border-apex-400/30 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal('vipModal')" class="absolute top-6 right-6 text-slate-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full border-2 border-apex-400 text-apex-400 flex items-center justify-center font-serif font-bold text-xl mx-auto mb-3">
+          VIP
+        </div>
+        <h3 class="text-2xl font-serif font-bold text-white">Join The VIP Club</h3>
+        <p class="text-xs text-slate-400 mt-1">Unlimited haircuts, priority booking, and exclusive lounge access.</p>
+      </div>
+
+      <form onsubmit="handleVipSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Full Name</label>
+          <input type="text" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/30 text-white text-sm focus:outline-none focus:border-apex-400">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Email Address</label>
+          <input type="email" required placeholder="your@email.com" class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/30 text-white text-sm focus:outline-none focus:border-apex-400">
+        </div>
+        <div>
+          <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Phone Number</label>
+          <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded-xl bg-apex-850 border border-apex-400/30 text-white text-sm focus:outline-none focus:border-apex-400">
+        </div>
+        <button type="submit" class="w-full py-3.5 bg-apex-400 hover:bg-apex-500 text-apex-950 font-bold rounded-xl text-sm transition-all mt-2 shadow-lg shadow-apex-400/20">
+          Apply For Membership ($120/mo)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 bg-apex-900 text-white border border-apex-400/30 px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="text-apex-400 text-lg">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <span id="toastMsg" class="text-sm font-medium">Notification</span>
+  </div>
+
+  <!-- JavaScript Interaction Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Modal Controls
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    // Form Event Handlers
+    function handleBooking(e) {
+      e.preventDefault();
+      e.target.reset();
+      showToast('Appointment successfully requested! We will confirm via SMS shortly.');
+    }
+
+    function handleVipSubmit(e) {
+      e.preventDefault();
+      closeModal('vipModal');
+      e.target.reset();
+      showToast('Welcome! Your VIP membership application has been received.');
+    }
+
+    // Toast Notification System
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      
+      toastMsg.innerText = message;
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
